@@ -55,8 +55,8 @@ class Display extends \Magento\Framework\View\Element\Template
         foreach ($collection as $campaign){
             $count++;
             if ($count <= $artificialLimit)
-            echo ‘<h2>’.$product->getTitle().’</h2><br>';
-		echo ‘<h3>’.$product->getDescription().’</h3><br>';
+            echo '<h2>'.$product->getTitle().'</h2><br>';
+		echo '<h3>'.$product->getDescription().'</h3><br>';
         }
 
         echo '<h2>' . $this->_helper->test() . '</h2>';
