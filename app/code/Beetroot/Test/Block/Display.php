@@ -44,7 +44,7 @@ class Display extends \Magento\Framework\View\Element\Template
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
-        $productCollection = $objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
+        $productCollection = $objectManager->create('\Beetroot\Test\Model\Campaign\CollectionFactory');
 
         $collection = $productCollection->create()
             ->addAttributeToSelect('*')
@@ -52,10 +52,11 @@ class Display extends \Magento\Framework\View\Element\Template
 
         $count = 0;
         $artificialLimit = 2;
-        foreach ($collection as $product){
+        foreach ($collection as $campaign){
             $count++;
             if ($count <= $artificialLimit)
-            echo 'Name  =  '.$product->getName().'<br>';
+            echo ‘<h2>’.$product->getTitle().’</h2><br>';
+		echo ‘<h3>’.$product->getDescription().’</h3><br>';
         }
 
         echo '<h2>' . $this->_helper->test() . '</h2>';
