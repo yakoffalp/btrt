@@ -44,7 +44,7 @@ class Display extends \Magento\Framework\View\Element\Template
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
-        $productCollection = $objectManager->create('\Beetroot\Test\Model\Campaign\CollectionFactory');
+        $collection = $objectManager->create('\Beetroot\Test\Model\Campaign\CollectionFactory');
 
         $collection = $productCollection->create()
             ->addAttributeToSelect('*')
