@@ -1,15 +1,3 @@
 <h2><?php echo 'Block starts here!!!' ; ?></h2>
-<?php
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$campaignCollection = $objectManager->create('Beetroot\Test\Model\ResourceModel\Campaign\CollectionFactory');
 
-$collection = $campaignCollection->create()
-    //->addAttributeToSelect('*')
-    ->load();
-
-echo 'Locations' . $collection->count();
-foreach ($collection as $product){
-    echo 'Location  =  '.$product->getLocationId().'<br>';
-}
-?>
 <h3><?php echo $this->getHelloWorldTxt(); ?></h3>
