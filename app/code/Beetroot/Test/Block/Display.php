@@ -42,21 +42,19 @@ class Display extends \Magento\Framework\View\Element\Template
 
     public function getHelloWorldTxt()
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$campaignCollection = $objectManager->create('Beetroot\Test\Model\ResourceModel\Campaign\CollectionFactory');
 
-        $collection = $objectManager->create('\Beetroot\Test\Model\Campaign\CollectionFactory');
-
-        $collection = $productCollection->create()
-            ->addAttributeToSelect('*')
-            ->load();
-
+	$collection = $campaignCollection->create()
+	    ->load();
         $count = 0;
         $artificialLimit = 2;
-        foreach ($collection as $campaign){
+         foreach ($collection as $campaign){
             $count++;
-            if ($count <= $artificialLimit)
-            echo '<h2>'.$product->getTitle().'</h2><br>';
-		echo '<h3>'.$product->getDescription().'</h3><br>';
+            if ($count <= $artificialLimit) {
+            	echo '<h2>'.$campaign->getTitle().'</h2><br>';
+		echo '<h3>'.$campaign->getDescription().'</h3><br>';
+		}
         }
 
         echo '<h2>' . $this->_helper->test() . '</h2>';
